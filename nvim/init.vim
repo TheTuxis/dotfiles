@@ -156,7 +156,6 @@ Plug 'tpope/vim-rhubarb'           " Depenency for tpope/fugitive
 
 " General plugins
 Plug 'Shougo/denite.nvim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'  " Default snippets for many languages
 Plug 'bling/vim-airline'
@@ -170,16 +169,12 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/vim-emoji'
 Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-signify'
-Plug 'mileszs/ack.vim'
-Plug 'neomake/neomake'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'sbdchd/neoformat'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'sebdah/vim-delve'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
 Plug 'vimwiki/vimwiki'
 
 " Vim only plugins
