@@ -1,4 +1,4 @@
-" Fisa-vim-config, a config for both Vim and NeoVim
+"::edit $MYVIMRCedit $MYVIMRC :edit $MYVIMR:edit $MYVIMRCCFisa-vim-config, a config for both Vim and NeoVim
 " http://vim.fisadev.com
 " version: 12.0.0
 
@@ -10,7 +10,8 @@ let fancy_symbols_enabled = 1
 
 
 set encoding=utf-8
-let using_neovim = has('nvim')
+"let using_neovim = has('nvim')
+let using_neovim = 1
 let using_vim = !using_neovim
 
 " ============================================================================
@@ -158,7 +159,7 @@ Plug 'tpope/vim-rhubarb'           " Depenency for tpope/fugitive
 Plug 'Shougo/denite.nvim'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'  " Default snippets for many languages
-Plug 'bling/vim-airline'
+"Plug 'bling/vim-airline'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim'          " CtrlP is installed to support tag finding in vim-go
 Plug 'editorconfig/editorconfig-vim'
@@ -169,7 +170,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/vim-emoji'
 Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-signify'
-Plug 'rbgrouleff/bclose.vim'
+"Plug 'rbgrouleff/bclose.vim'
 Plug 'sbdchd/neoformat'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
@@ -574,7 +575,7 @@ if has('nvim')
     " example:
     " pip3.6 install -U neovim
     let g:python_host_prog = '/usr/bin/python2'
-    let g:python3_host_prog = '/usr/bin/python3'
+    let g:python3_host_prog = '/usr/local/bin/python3'
 endif
 
 " Enable mouse if possible
@@ -588,52 +589,14 @@ syntax enable
 " Set the leader button
 let mapleader = ','
 
-" Autosave buffers before leaving them
-autocmd BufLeave * silent! :wa
+"" Autosave buffers before leaving them
+"autocmd BufLeave * silent! :wa
 
-" Remove trailing white spaces on save
-autocmd BufWritePre * :%s/\s\+$//e
+"" Remove trailing white spaces on save
+"autocmd BufWritePre * :%s/\s\+$//e
 
 " Center the screen quickly
 nnoremap <space> zz
-
-"----------------------------------------------
-" Colors
-"----------------------------------------------
-if (has("nvim"))
-  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-endif
-
-"For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-"Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-" < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-if (has("termguicolors"))
-  set termguicolors
-endif
-
-set background=dark
-
-" Material colorscheme settings
-let g:material_theme_style = 'dark'
-
-" Ayu colorscheme settings
-let ayucolor = 'dark'
-
-" One colorscheme settings
-let g:one_allow_italics = 1
-
-colorscheme one
-
-" Override the search highlight color with a combination that is easier to
-" read. The default PaperColor is dark green backgroun with black foreground.
-"
-" Reference:
-" - http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim
-highlight Search guibg=DeepPink4 guifg=White ctermbg=53 ctermfg=White
-
-" Toggle background with <leader>bg
-map <leader>bg :let &background = (&background == "dark"? "light" : "dark")<cr>
 
 "----------------------------------------------
 " Searching
@@ -749,35 +712,35 @@ endif
 "endfunction
 
 let g:deoplete#sources#go#gocode_binary = $HOME.'/go/bin/gocode'
-let g:deoplete#sources#go#source_importer = 1
+let g:deoplete#sources#go#source_importero  = 1
 
 call deoplete#custom#option({
 \ 'auto_complete_delay': 0,
 \ 'auto_refresh_delay': 10,
 \})
 
-"----------------------------------------------
-" Plugin: bling/vim-airline
-"----------------------------------------------
-" Show status bar by default.
-set laststatus=2
-
-" Enable top tabline.
-let g:airline#extensions#tabline#enabled = 1
-
-" Disable showing tabs in the tabline. This will ensure that the buffers are
-" what is shown in the tabline at all times.
-let g:airline#extensions#tabline#show_tabs = 0
-
-" Enable powerline fonts.
-let g:airline_powerline_fonts = 0
-
-" Explicitly define some symbols that did not work well for me in Linux.
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_symbols.branch = ''
-let g:airline_symbols.maxlinenr = ''
+""----------------------------------------------
+"" Plugin: bling/vim-airline
+""----------------------------------------------
+"" Show status bar by default.
+"set laststatus=2
+"
+"" Enable top tabline.
+"let g:airline#extensions#tabline#enabled = 1
+"
+"" Disable showing tabs in the tabline. This will ensure that the buffers are
+"" what is shown in the tabline at all times.
+"let g:airline#extensions#tabline#show_tabs = 1
+"
+"" Enable powerline fonts.
+"let g:airline_powerline_fonts = 0
+"
+"" Explicitly define some symbols that did not work well for me in Linux.
+"if !exists('g:airline_symbols')
+"    let g:airline_symbols = {}
+"endif
+"let g:airline_symbols.branch = ''
+"let g:airline_symbols.maxlinenr = ''
 
 "----------------------------------------------
 " Plugin: christoomey/vim-tmux-navigator
