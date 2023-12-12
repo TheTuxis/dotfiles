@@ -1,0 +1,53 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+PS1='[\u@\h \W]\$ '
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export GOPATH=$HOME/go 
+export GOROOT=/usr/lib/go
+export PATH="$GOROOT/bin:$PATH" 
+export PATH="$PATH:$GOPATH/bin"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '$HOME/google-cloud-sdk/path.bash.inc' ]; then . '$HOME/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '$HOME/google-cloud-sdk/completion.bash.inc' ]; then . '$HOME/google-cloud-sdk/completion.bash.inc'; fi
+
+cat_csv()
+{
+	cat $1 | sed 's/,,/, ,/g' | column -t -s, | less -FXS
+}
+clear & neofetch
+alias kubectl="kubecolor"
+export PATH="$HOME/.local/bin:$PATH"
+
+# NeoVim
+alias nvim-kick="NVIM_APPNAME=kickstart nvim"
+alias nvim-ide="NVIM_APPNAME=IDENvim nvim"
+alias nvim-astro="NVIM_APPNAME=AstroNvim nvim"
+
+nvims(){
+  items=("default" "IDENVim" "AstroNvim")
+  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse
+--border --exit-0)
+  if [[ -z $config ]]; then
+    echo "Nothing selected"
+    return 0
+  elif [[ $config == "default" ]]; then
+    config=""
+  fi
+  NVIM_APPNAME=$config nvim $@
+  echo "hola"
+  echo $NVIM_APPNAME
+}
+
+bind -x '"\C-b": nvims'
+
