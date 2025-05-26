@@ -5,6 +5,24 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Ruta al archivo del historial
+HISTFILE=~/.zsh_history
+
+# Cantidad de comandos a guardar en memoria y archivo
+HISTSIZE=10000         # en memoria
+SAVEHIST=10000         # en disco
+
+# Opciones para comportamiento del historial
+setopt HIST_IGNORE_ALL_DUPS    # Ignora duplicados previos
+setopt HIST_IGNORE_SPACE       # No guarda comandos que empiezan con espacio
+setopt HIST_FIND_NO_DUPS       # Evita duplicados al buscar con flechas
+setopt HIST_REDUCE_BLANKS      # Elimina espacios innecesarios
+setopt SHARE_HISTORY           # Comparte el historial entre sesiones
+setopt INC_APPEND_HISTORY      # Guarda cada comando en el archivo inmediatamente
+setopt EXTENDED_HISTORY        # Guarda timestamps
+
+touch ~/.zsh_history
+
 # ZSH CONFIG - ARCH CUSTOM
 
 [[ $- != *i* ]] && return
