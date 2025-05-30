@@ -40,15 +40,13 @@ zinit light zsh-users/zsh-completions
 
 alias ls='ls --color=auto'
 alias kubectl="kubecolor"
-alias nvim-kick="NVIM_APPNAME=kickstart nvim"
-alias nvim-ide="NVIM_APPNAME=IDENvim nvim"
-alias rust-nvim="NVIM_APPNAME=rust-nvim nvim"
-alias general-nvim="NVIM_APPNAME=general-nvim nvim"
-alias python-nvim="NVIM_APPNAME=python-nvim nvim"
-alias golang-nvim="NVIM_APPNAME=golang-nvim nvim"
+alias RustNvim="NVIM_APPNAME=RustNvim nvim"
+alias GeneralNvim="NVIM_APPNAME=GeneralNvim nvim"
+alias PythonNvim="NVIM_APPNAME=PythonNvim nvim"
+alias GolangNvim="NVIM_APPNAME=GolangNvim nvim"
 
 nvims() {
-  items=("default" "general-nvim" "golang-nvim" "python-nvim" "rust-nvim" "IDENvim")
+  items=("default" "GeneralNvim" "GolangNvim" "PythonNvim" "RustNvim")
   config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config 🖥️ " --height=~50% --layout=reverse --border --exit-0)
   if [[ -z $config ]]; then
     echo "Nothing selected"
