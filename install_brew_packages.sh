@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "Instalando Brew"
+echo "Installing Brew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 
@@ -13,11 +13,11 @@ brew install tree-sitter
 echo "file utils"
 brew install ranger
 brew install stow
-# brew install unrar # no existe?
+# brew install unrar # package not available?
 # brew install vifm
 brew install bat
 brew install glow
-# brew install marksman # no lo encuentra, falta un comando?
+# brew install marksman # missing formula?
 
 
 echo "git utils"
@@ -30,12 +30,12 @@ brew install the_silver_searcher
 brew install ripgrep
 brew install fzf
 
-echo "graficos"
+echo "graphics"
 brew install graphviz
 brew install plantuml
 brew install mermaid-cli
 
-echo "fuentes"
+echo "fonts"
 brew tap homebrew/cask-fonts
 # brew install font-symbols-only-nerd-font
 brew install font-fira-code
@@ -43,12 +43,12 @@ brew install font-jetbrains-mono
 brew install font-Fira-Code-nerd-font
 brew install sfmono-nerd-font
 
-echo "terminales"
+echo "terminals"
 brew install kitty
 brew install alacritty
 brew install tmux
 
-echo "desarrollo"
+echo "development"
 brew install go
 brew install pyenv
 brew install fnm

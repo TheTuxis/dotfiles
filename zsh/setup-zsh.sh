@@ -2,25 +2,25 @@
 
 set -e
 
-echo "🚀 Instalando dependencias base..."
+echo "🚀 Installing base dependencies..."
 sudo pacman -Sy --noconfirm zsh git fzf zsh-autosuggestions zsh-syntax-highlighting zsh-completions
 
-echo "📦 Instalando zinit..."
+echo "📦 Installing zinit..."
 mkdir -p ~/.zinit
 git clone https://github.com/zdharma-continuum/zinit.git ~/.zinit/bin
 
-echo "🎨 Instalando Powerlevel10k..."
+echo "🎨 Installing Powerlevel10k..."
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.zinit/powerlevel10k
 
-echo "🔧 Instalando fzf integración..."
+echo "🔧 Installing fzf integration..."
 if [ -d ~/.fzf ]; then
-  echo "fzf ya instalado."
+  echo "fzf already installed."
 else
   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
   ~/.fzf/install --no-update-rc --key-bindings --completion
 fi
 
-echo "🧹 Guardando configuración en ~/.zshrc..."
+echo "🧹 Saving configuration to ~/.zshrc..."
 cat << 'EOF' > ~/.zshrc
 # ZSH CONFIG - ARCH CUSTOM
 
@@ -84,8 +84,8 @@ setopt share_history
 setopt no_beep
 EOF
 
-echo "✅ Todo listo. Cambiando shell por defecto a Zsh..."
+echo "✅ All done. Changing default shell to Zsh..."
 chsh -s "$(which zsh)"
 
-echo "🎉 Reiniciá tu terminal o ejecutá 'zsh' para empezar."
+echo "🎉 Restart your terminal or run 'zsh' to begin."
 

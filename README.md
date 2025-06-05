@@ -1,50 +1,48 @@
 # dotfiles
 
-Este repositorio contiene configuraciones personales para varias herramientas de desarrollo y terminal. Está pensado para ser gestionado con [GNU Stow](https://www.gnu.org/software/stow/) y así mantener los archivos bajo control de versiones.
+This repository contains personal configuration files for various development and terminal tools. It is intended to be managed with [GNU Stow](https://www.gnu.org/software/stow/) so all files remain under version control.
 
-## Estructura
+## Structure
 
-Cada directorio corresponde a la configuración de una aplicación específica. Algunos ejemplos son:
+Each directory holds the configuration for a specific application. Examples include:
 
-- `bash/` y `zsh/` &ndash; scripts y configuraciones de shell.
-- `git/` &ndash; archivo de configuración global de Git.
-- `nvim/` &ndash; distintas configuraciones de Neovim organizadas por lenguaje o propósito.
-- `tmux/` y `wezterm/` &ndash; ajustes de terminal multiplexers y emuladores.
-- `alacritty/` y `mc/` &ndash; configuraciones adicionales para terminales y utilidades de archivos.
+- `bash/` and `zsh/` – shell scripts and settings.
+- `git/` – global Git configuration.
+- `nvim/` – different Neovim setups organised by language or purpose.
+- `tmux/` and `wezterm/` – settings for multiplexers and terminal emulators.
+- `alacritty/` and `mc/` – additional terminal and file utility configurations.
 
-## Instalación rápida
+## Quick install
 
-1. Clona este repositorio en tu directorio de trabajo:
+1. Clone this repository into your workspace:
    ```bash
    git clone https://github.com/usuario/dotfiles.git
    cd dotfiles
    ```
-2. Usa `stow` para enlazar las configuraciones que necesites. Por ejemplo, para aplicar la configuración de Git y Zsh:
+2. Run the `bootstrap.sh` script to link all configurations using `stow`:
    ```bash
-   stow git
-   stow zsh
+   ./bootstrap.sh
    ```
-3. Repite el proceso con los demás módulos según tus preferencias.
+3. If you only need certain modules, edit the script or run `stow` manually.
 
-### Paquetes adicionales
+### Additional packages
 
-El script `install_brew_packages.sh` instala herramientas comunes utilizando Homebrew. Ejecuta el script para instalar dependencias útiles como Neovim, fzf, lazygit, entre otras.
+The `install_brew_packages.sh` script installs common tools with Homebrew. Run it to install useful dependencies such as Neovim, fzf and lazygit.
 
 ```bash
 ./install_brew_packages.sh
 ```
 
-## Uso de múltiples configuraciones de Neovim
+## Multiple Neovim configurations
 
-Dentro de `nvim/.config/` encontrarás varias configuraciones pensadas para distintos entornos (general, Go, Python, Rust, etc.). Puedes iniciarlas exportando la variable `NVIM_APPNAME` antes de lanzar Neovim:
+Inside `nvim/.config/` you'll find various setups for different environments (general, Go, Python, Rust, etc.). Launch one by exporting the `NVIM_APPNAME` variable before starting Neovim:
 
 ```bash
 NVIM_APPNAME=GolangNvim nvim
 ```
 
-El script `zsh/setup-zsh.sh` también incluye una función llamada `nvims` para seleccionar interactivamente la configuración deseada mediante `fzf`.
+The `zsh/setup-zsh.sh` script also defines an `nvims` function that lets you select the desired configuration interactively via `fzf`.
 
-## Licencia
+## License
 
-Este proyecto se distribuye bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
-
+This project is released under the MIT license. See [LICENSE](LICENSE) for more information.
