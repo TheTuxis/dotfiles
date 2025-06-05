@@ -1,0 +1,12 @@
+# Editor backups
+*~
+*.swp
+
+# macOS
+.DS_Store
+
+# Node modules (in case)
+node_modules/
+
+# Python caches
+__pycache__/
